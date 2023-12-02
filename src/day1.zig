@@ -1,18 +1,17 @@
 const std = @import("std");
-const args = @import("args");
-const input = @embedFile("1.txt");
+const input = @embedFile("input/1.txt");
 
-pub fn main() !void {
-    const lineFunc: LineFunc = switch (args.getPart()) {
+pub fn solve(part: u8) !void {
+    const lineFunc: LineFunc = switch (part) {
         1 => part1,
         2 => part2,
-        else => unreachable,
+        else => std.debug.panic("no part '{d}' found", .{part}),
     };
 
     var sum: u32 = 0;
-    var it = std.mem.tokenizeAny(u8, input, "\n");
+    var lines = std.mem.tokenizeAny(u8, input, "\n");
 
-    while (it.next()) |line| {
+    while (lines.next()) |line| {
         var lc = LineChars{};
         lineFunc(line, &lc);
 

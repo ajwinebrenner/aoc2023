@@ -16,15 +16,13 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const exe = b.addExecutable(.{
-        .name = "day1",
+        .name = "aoc2023",
         // In this case the main source file is merely a path, however, in more
         // complicated build scripts, this could be a generated file.
         .root_source_file = .{ .path = "src/main.zig" },
         .target = target,
         .optimize = optimize,
     });
-
-    exe.addModule("args", b.createModule(.{ .source_file = .{ .path = "../lib/args.zig" } }));
 
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
