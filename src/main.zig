@@ -1,5 +1,6 @@
 const std = @import("std");
 const day1 = @import("day1.zig");
+const day2 = @import("day2.zig");
 
 pub fn main() !void {
     var args = std.process.args();
@@ -10,6 +11,7 @@ pub fn main() !void {
 
     switch (day) {
         1 => try day1.solve(part),
+        2 => try day2.solve(part),
         else => std.debug.print("no day '{d}' found", .{day}),
     }
 }
