@@ -16,7 +16,7 @@ fn part1() !void {
         .blue = 14,
     };
 
-    var validGames: u32 = 0;
+    var valid_games: u32 = 0;
     var lines = std.mem.tokenizeAny(u8, input, "\n");
 
     while (lines.next()) |line| {
@@ -30,14 +30,14 @@ fn part1() !void {
             }
         }
 
-        validGames += game;
+        valid_games += game;
     }
 
-    std.debug.print("valid games total: {d}\n", .{validGames});
+    std.debug.print("valid games total: {d}\n", .{valid_games});
 }
 
 fn part2() !void {
-    var powerSum: u32 = 0;
+    var power_sum: u32 = 0;
     var lines = std.mem.tokenizeAny(u8, input, "\n");
 
     while (lines.next()) |line| {
@@ -54,10 +54,10 @@ fn part2() !void {
             try pool.update(draw);
         }
 
-        powerSum += pool.red * pool.green * pool.blue;
+        power_sum += pool.red * pool.green * pool.blue;
     }
 
-    std.debug.print("total power: {d}\n", .{powerSum});
+    std.debug.print("total power: {d}\n", .{power_sum});
 }
 
 const DrawPool = struct {

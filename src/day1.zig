@@ -2,7 +2,7 @@ const std = @import("std");
 const input = @embedFile("input/1.txt");
 
 pub fn solve(part: u8) !void {
-    const lineFunc: LineFunc = switch (part) {
+    const line_func: LineFunc = switch (part) {
         1 => part1,
         2 => part2,
         else => std.debug.panic("no part '{d}' found", .{part}),
@@ -13,7 +13,7 @@ pub fn solve(part: u8) !void {
 
     while (lines.next()) |line| {
         var lc = LineChars{};
-        lineFunc(line, &lc);
+        line_func(line, &lc);
 
         sum += try std.fmt.parseInt(u32, &lc.pair, 10);
     }
