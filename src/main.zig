@@ -4,6 +4,7 @@ const day2 = @import("day2.zig");
 const day3 = @import("day3.zig");
 const day4 = @import("day4.zig");
 const day5 = @import("day5.zig");
+const day6 = @import("day6.zig");
 
 pub fn main() !void {
     var args = std.process.args();
@@ -18,7 +19,8 @@ pub fn main() !void {
         3 => try day3.solve(part),
         4 => try day4.solve(part),
         5 => try day5.solve(part),
-        else => std.debug.print("no day '{d}' found", .{day}),
+        6 => try day6.solve(part),
+        else => std.debug.print("no day '{d}' found\n", .{day}),
     }
 }
 
