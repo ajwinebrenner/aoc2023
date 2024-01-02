@@ -1,11 +1,4 @@
 const std = @import("std");
-const day1 = @import("day1.zig");
-const day2 = @import("day2.zig");
-const day3 = @import("day3.zig");
-const day4 = @import("day4.zig");
-const day5 = @import("day5.zig");
-const day6 = @import("day6.zig");
-const day7 = @import("day7.zig");
 
 pub fn main() !void {
     var args = std.process.args();
@@ -15,13 +8,13 @@ pub fn main() !void {
     const part = nextIntArg(&args) catch @panic("invalid part value");
 
     switch (day) {
-        1 => try day1.solve(part),
-        2 => try day2.solve(part),
-        3 => try day3.solve(part),
-        4 => try day4.solve(part),
-        5 => try day5.solve(part),
-        6 => try day6.solve(part),
-        7 => try day7.solve(part),
+        1 => try @import("day1.zig").solve(part),
+        2 => try @import("day2.zig").solve(part),
+        3 => try @import("day3.zig").solve(part),
+        4 => try @import("day4.zig").solve(part),
+        5 => try @import("day5.zig").solve(part),
+        6 => try @import("day6.zig").solve(part),
+        7 => try @import("day7.zig").solve(part),
         else => std.debug.print("no day '{d}' found\n", .{day}),
     }
 }
