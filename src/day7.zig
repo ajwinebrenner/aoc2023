@@ -138,8 +138,8 @@ fn rankDesc(jokers: bool, lhs: Hand, rhs: Hand) bool {
     const r = if (jokers) ranksJ else ranks;
 
     for (lhs.cards, 0..) |v, i| {
-        const lhr = containsIdx(u8, &r, v).?;
-        const rhr = containsIdx(u8, &r, rhs.cards[i]).?;
+        const lhr = findIdx(u8, &r, v).?;
+        const rhr = findIdx(u8, &r, rhs.cards[i]).?;
         if (lhr == rhr) continue;
 
         return (lhr < rhr);
@@ -148,7 +148,7 @@ fn rankDesc(jokers: bool, lhs: Hand, rhs: Hand) bool {
     unreachable;
 }
 
-fn containsIdx(comptime T: type, items: []const T, find: T) ?usize {
+fn findIdx(comptime T: type, items: []const T, find: T) ?usize {
     for (items, 0..) |item, i| {
         if (item == find) return i;
     }
